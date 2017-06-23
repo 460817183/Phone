@@ -2,7 +2,6 @@ package com.example.goviewer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
@@ -21,11 +20,6 @@ import com.uzmap.pkg.uzcore.uzmodule.UZModuleContext;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 
 public class GoviewerModule extends UZModule {
@@ -48,12 +42,6 @@ public class GoviewerModule extends UZModule {
         jsResult = context;
     }
 
-    @Override
-    protected void onClean() {
-        manager.stopRecord();
-        super.onClean();
-
-    }
 
 
     @Override
@@ -82,136 +70,24 @@ public class GoviewerModule extends UZModule {
 
     }
 
-    AudioRecordManager manager;
     public static SpeechRecognizer mIat;
     public RecognizerListener mRecoListener;
     public static boolean isStop;
 
     public void jsmethod_stopVoice(final UZModuleContext context) {
 
-        manager.stopRecord();
-        handler.removeCallbacks(runable);
-        mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-1");
-        mIat.startListening(new RecognizerListener() {
-            @Override
-            public void onVolumeChanged(int i, byte[] bytes) {
-                Log.e("test", "onVolumeChanged");
-                MyToast.show(getContext(), "正在识别");
-            }
-
-            @Override
-            public void onBeginOfSpeech() {
-                Log.e("test", "onBeginOfSpeech");
-            }
-
-            @Override
-            public void onEndOfSpeech() {
-                Log.e("test", "onEndOfSpeech");
-            }
-
-            @Override
-            public void onResult(RecognizerResult recognizerResult, boolean b) {
-
-                if (b) {
-                    final String text = JsonParser.parseIatResult(recognizerResult
-                            .getResultString());
-                    if(text.trim().length()>1) {
-                        JSONObject result = new JSONObject();
-                        try {
-                            result.put("result", text);
-                            context.success(result, true);
-                        } catch (JSONException e) {
-                            // TODO Auto-generated catch block
-                            MyToast.show(getContext(), "返回json出错");
-                            e.printStackTrace();
-                        }
-                    }else{
-                        MyToast.show(getContext(),"识别出错!");
-                    }
-                }
-
-            }
-
-            @Override
-            public void onError(SpeechError speechError) {
-                Log.e("test", "onError:" + speechError.getErrorDescription());
-                MyToast.show(getContext(), "识别出错:" + speechError.getErrorDescription());
-            }
-
-            @Override
-            public void onEvent(int i, int i1, int i2, Bundle bundle) {
-                Log.e("test", "onEvent");
-            }
-
-        });
-        File file = new File(filePath);
-        try {
-            FileInputStream inputStream = new FileInputStream(file);
-            byte[] bytes = new byte[inputStream.available()];
-            inputStream.read(bytes);
-            mIat.writeAudio(bytes, 0, bytes.length);
-            mIat.stopListening();
-            inputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        if (true) {
-            return;
-        }
         isStop = true;
         mIat.stopListening();
     }
 
-    String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + getContext().getPackageName() + "/record.pcm";
 
-    public void startVoice() {
 
-        MyToast.show(getContext(),"请说话");
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "/" + getContext().getPackageName());
-        if (!file.exists()) {
-            file.mkdir();
-        }
-        File file1 = new File(file, "record.pcm");
-        manager.startRecord(file1.getAbsolutePath());
 
-        Log.e("test", "调用了开始录音");
-    }
 
-    public class MyRunable implements Runnable{
 
-        UZModuleContext context;
-        @Override
-        public void run() {
-            handler.removeCallbacks(this);
-            if(manager!=null&&manager.isStart){
-                jsmethod_stopVoice(context);
-            }
-        }
-        public void setContext(final UZModuleContext context){
-            this.context=context;
-        }
-    }
-    MyRunable runable=new MyRunable();
     public void jsmethod_startVoice(final UZModuleContext context) {
         if (mIat == null) {
             initSpeech();
-        }
-        manager = new AudioRecordManager();
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "/" + getContext().getPackageName());
-        if (!file.exists()) {
-            file.mkdir();
-        }
-        File file1 = new File(file, "record.pcm");
-        manager.startRecord(file1.getAbsolutePath());
-        runable.setContext(context);
-        handler.postDelayed(runable,30*1000);
-
-        if (true) {
-            return;
         }
         isStop = false;
         mRecoListener = new RecognizerListener() {
