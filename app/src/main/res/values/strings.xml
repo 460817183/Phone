@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">goviewer</string>
+    <string name="hello_world">Hello world!</string>
+    <!-- score_table  -->
+    <string name="score_table_text1">分</string>
+    <string name="score_table_text2">个人排名: </string>
+    <string name="score_table_text3">正确率: </string>
+    <string name="hailuo_text1">题目</string>
+    <string name="new_video_yuyin">请输入语音</string>
+    <string name="score_flower">获得红花:</string>
+    <string name="get_apple">恭喜你获得一个小苹果</string>
+    <string name="new_video_text1">十个苹果可以换取一朵小红花哦!</string>
+    <string name="new_video_text2">即将进入本次课后练习。。</string>
+    <string name="new_video_text3">个人排名:</string>
+    <string name="new_video_text4">分</string>
+    
+</resources>

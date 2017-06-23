@@ -1,0 +1,9 @@
+{
+	modules:[
+		{
+			name:'mymodule',
+			class:'com.example.goviewer.GoviewerModule'
+		}
+	]
+
+}

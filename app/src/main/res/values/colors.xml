@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_333333">#333333</color>
+    <color name="score">#FF0000</color>
+    <color name="text_5a535a">#5A535A</color>
+    <color name="rankingsScore">#FF9900</color>
+    <color name="translucent">#00000000</color>
+    <color name="text_ffffff">#ffffff</color>
+    <color name="text_9cff00">#9cff00</color>
+    <color name="text_ff6600">#ff6600</color>
+    <color name="text_807b7b">#807b7b</color>
+</resources>

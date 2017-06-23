@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_marginTop="-408px"
+            android:layout_width="1896px"
+            android:layout_height="1920px"
+            android:id="@+id/bg"
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="302px"
+        android:layout_height="302px"
+        android:layout_marginTop="255px"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/image"
+        android:scaleType="fitXY"
+        />
+    <ImageButton
+        android:layout_marginTop="8px"
+        android:layout_width="201px"
+        android:layout_height="74px"
+        android:layout_below="@id/image"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/receive"
+        android:src="@drawable/receive"
+        android:scaleType="fitXY"
+        android:background="@color/translucent"
+        />
+    <TextView
+        android:layout_marginTop="12px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/receive"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:id="@+id/desc"
+        android:textColor="@color/text_333333"
+        android:textSize="30px"
+        android:gravity="center"
+        android:lineSpacingExtra="12px"
+        android:text="恭喜你加入常青藤学堂  \n特发 “璀璨新生” 勋章勉励！"
+        />
+</RelativeLayout>

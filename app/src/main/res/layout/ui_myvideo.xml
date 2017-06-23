@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/translucent"
+        />
+    <VideoView
+        android:id="@+id/myvideoview"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:id="@+id/controller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#88000000"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="10px"
+            >
+            <ImageButton
+                android:id="@+id/reloading"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                app:layout_auto_baseheight="width"
+                android:background="#00000000"
+                android:contentDescription="重新播放"
+                android:scaleType="fitXY"
+                android:focusable="true"
+                android:src="@drawable/video_reloading" />
+
+            <ImageButton
+                android:id="@+id/rew"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                app:layout_auto_baseheight="width"
+                android:layout_marginLeft="72px"
+                android:background="#00000000"
+                android:contentDescription="快退"
+                android:scaleType="fitXY"
+                android:focusable="true"
+                android:src="@drawable/video_rew" />
+
+            <ImageButton
+                android:id="@+id/pause"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                app:layout_auto_baseheight="width"
+                android:layout_marginLeft="72px"
+                android:background="#00000000"
+                android:contentDescription="播放"
+                android:scaleType="fitXY"
+                android:focusable="true"
+                android:src="@drawable/video_play" />
+
+            <ImageButton
+                android:id="@+id/ffwd"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                app:layout_auto_baseheight="width"
+                android:layout_marginLeft="72px"
+                android:background="#00000000"
+                android:contentDescription="快进"
+                android:scaleType="fitXY"
+                android:focusable="true"
+                android:src="@drawable/video_ffwd" />
+
+            <ImageButton
+                android:id="@+id/collection"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                app:layout_auto_baseheight="width"
+                android:layout_marginLeft="72px"
+                android:background="#00000000"
+                android:contentDescription="收藏"
+                android:scaleType="fitXY"
+                android:focusable="true"
+                android:src="@drawable/video_collection" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <SeekBar
+                android:id="@+id/seekBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="32dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:max="1000"
+                android:secondaryProgress="0"
+                android:focusable="true"
+                android:progress="0"
+                />
+
+            <!--<SeekBar-->
+                <!--android:id="@+id/seekBar"-->
+                <!--style="@style/test_seekbar"-->
+                <!--android:layout_width="0px"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:max="1000"-->
+                <!--android:progress="0"-->
+                <!--android:focusable="true"-->
+                <!--android:secondaryProgress="0" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_current"
+                android:text="00:00"
+                android:textColor="#ffffff"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="/"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#ffffff"
+                android:id="@+id/time"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/video_loading"
+        android:visibility="visible"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        android:src="@drawable/video_loading"/>
+</RelativeLayout>

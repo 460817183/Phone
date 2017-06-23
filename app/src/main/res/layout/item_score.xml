@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4px"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/score_ranking_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载中"
+        android:textColor="@color/score"
+        android:textSize="24px" />
+
+    <TextView
+        android:id="@+id/score_ranking_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载中"
+        android:textSize="24px"
+        android:paddingLeft="24px"
+        android:layout_toEndOf="@+id/score_ranking_tv" />
+</RelativeLayout>

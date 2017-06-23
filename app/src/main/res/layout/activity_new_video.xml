@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000">
+
+    <com.example.goviewer.MyVideo
+        android:id="@+id/videoview"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--答题界面-->
+    <RelativeLayout
+        android:id="@+id/ll_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ll_show_bg"/>
+        <!--语音答题-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ll_say"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="844px"
+                android:layout_marginTop="298px"
+                android:textSize="40px"
+                android:text="@string/new_video_yuyin"
+                />
+            <ImageView
+                android:id="@+id/yuyin"
+                android:layout_width="500px"
+                android:layout_height="166px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="440px"
+                android:scaleType="fitXY"
+                />
+            <ImageView
+                android:focusable="true"
+                android:layout_marginTop="50px"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/yuyin"
+                android:layout_width="223px"
+                android:layout_height="61px"
+                android:id="@+id/skip_yuyin"
+                android:src="@drawable/skip_yuyin"
+                />
+        </RelativeLayout>
+        <!--文字或者图片答题-->
+        <RelativeLayout
+            android:id="@+id/ll_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/choose_listview"
+            android:layout_width="822px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="601px"
+            android:layout_marginTop="411px"
+            android:listSelector="@drawable/choose_selector"
+            />
+        <GridView
+            android:id="@+id/choose_gridView"
+            android:layout_width="848px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="570px"
+            android:layout_marginTop="394px"
+            android:horizontalSpacing="15px"
+            android:listSelector="@drawable/choose_selector_grid"
+            android:numColumns="2"
+             />
+        </RelativeLayout>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/error"
+            android:layout_width="143px"
+            android:layout_height="131px"
+            android:layout_marginLeft="1240px"
+            android:layout_marginTop="232px"/>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/right"
+            android:layout_width="176px"
+            android:layout_height="111px"
+            android:layout_marginLeft="1182px"
+            android:layout_marginTop="236px"/>
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="406px"
+            android:layout_height="364px"
+            android:layout_marginTop="18px"
+            android:layout_marginLeft="1276px"
+            android:id="@+id/error_gif"
+            android:visibility="gone"
+            />
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_marginTop="18px"
+            android:layout_marginLeft="1373px"
+            android:layout_width="310px"
+            android:layout_height="343px"
+            android:id="@+id/right_gif"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/tv_tpName"
+            android:layout_width="1090px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="627px"
+            android:layout_marginTop="272px"
+            android:textSize="40px"
+            android:textColor="@color/text_333333"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tpName_cn"
+            android:layout_marginLeft="627px"
+            android:textSize="40px"
+            android:textColor="@color/text_5a535a"
+            android:textStyle="bold"
+            android:layout_below="@id/tv_tpName"
+            />
+    </RelativeLayout>
+
+    <!--视频加载图片-->
+    <ImageView
+        android:id="@+id/video_loading"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        app:layout_auto_baseheight="width"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:background="#00ffffff"
+        android:scaleType="fitXY" />
+    <RelativeLayout
+        android:id="@+id/rl_video_disney_apple"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/video_disney_apple_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="727px"
+            android:layout_marginTop="390px"
+            android:text="恭喜你获得一个小苹果"
+            android:textSize="60px"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="797px"
+            android:layout_marginTop="497px"
+            android:text="十个苹果可以换取一朵小红花哦 ！"
+            android:textSize="33px" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="850px"
+            android:layout_marginTop="568px"
+            android:text="即将进入本次课后练习。。"
+            android:textSize="33px" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
